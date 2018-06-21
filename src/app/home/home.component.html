@@ -1,0 +1,36 @@
+<div class="container">
+    <div class='row'>
+      <div class='col-lg-12'>
+    <h1>Messaging App <button class="btn btn-success" (click)="logout()">Logout</button></h1>
+   <h2>Logged in as: {{temp.username}}</h2>
+    <div *ngFor='let message of messages' class='panel'>
+        <div class='row'>
+            <div class='col-m-3'>
+                <h4>{{message.authorName}}</h4>
+            </div>
+            <div class='col-md-9'>
+            <p>{{message.message}}</p>
+            </div>
+        </div>
+    </div>
+    </div>
+   
+    <div class='col-lg-4'>
+        <h1>Add Message</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <form (ngSubmit)="submitMessage()" #messageForm="ngForm">
+              <div class="form-group">
+                <label for="name">Message</label>
+                <textarea type="text" class="form-control" [(ngModel)]="newMessage.message" name="message" required></textarea>
+              </div>
+              <div class="form-group">
+                  <button type="submit" class="btn btn-success" [disabled]="!messageForm.form.valid">Save</button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  </div>
+  
